@@ -1,15 +1,53 @@
-https://medium.com/@erluxman/google-app-engine-installing-it-the-right-way-in-ubuntu-fb5760e206cb
+FOR WINDOWS
 
+1) Download Google Cloud Sdk
+https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe
 
-curl https://sdk.cloud.google.com | bash
+powershell open as administrator 
 
-https://console.cloud.google.com/start
+Set-ExecutionPolicy RemoteSigned
 
 gcloud init
 
+gcloud components install app-engine-python
+
+https://github.com/GoogleCloudPlatform/python-docs-samples
+
+cd python-docs-samples/appengine/flexible/hello_world
+
+python -m venv env
+.\env\Scripts\activate
+
+pip install -r requirements.txt
+
+python main.py
+	
+
+	
+FOR LINUX
+2)sudo apt-get install apt-transport-https ca-certificates gnupg
+
+cd /etc/apt/sources.list.d
+sudo rm google-cloud-sdk.list
+
+sudo snap install google-cloud-cli --classic
+
+sudo apt-get install google-cloud-cli-app-engine-python
+
+gcloud init
+
+gcloud components install app-engine-python      
+
+sudo apt install git
+
 git clone https://github.com/GoogleCloudPlatform/python-docs-samples
 
-cd python-docs-samples/appengine/standard/hello_world
+cd python-docs-samples/appengine/flexible/hello_world
 
-dev_appserver.py app.yml
+python3 -m venv env
+source env/bin/activate
 
+pip install -r requirements.txt
+
+python main.py
+      
